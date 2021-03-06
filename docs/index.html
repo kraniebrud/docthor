@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Untitled &mdash; Getting Started | 1.0.0 </title>
+	<script src="https://unpkg.com/mermaid@8.0.0-rc.8/dist/mermaid.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="assets/lib/skeleton.css">
+	<link rel="stylesheet" type="text/css" href="assets/lib/highlightjs/tomorrow-night.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/app.css">
+</head>
+<body>
+	<div id="wrapper">
+		<header id="header">
+			<div class="heading">
+				<h1>Untitled</h1>
+				<small class="version">version 1.0.0</small>
+			</div>
+			<nav id="menu">
+				<ul>
+					
+						<li class="active">
+							<a title="Getting Started" href="index.html">Getting Started</a>
+						</li>
+					
+				</ul>
+			</nav>
+		</header>
+		<div id="sidebar">
+			<nav class="nav"><ul>
+<li>
+<p><a href="#new-features">New Features!</a></p>
+<ul>
+<li>
+<ul>
+<li><a href="#tech">Tech</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#plugins">Plugins</a></li>
+<li>
+<p><a href="#development">Development</a></p>
+<ul>
+<li><a href="#building-for-source">Building for source</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#docker">Docker</a></p>
+<ul>
+<li><a href="#kubernetes--google-cloud">Kubernetes + Google Cloud</a></li>
+</ul>
+</li>
+<li><a href="#todos">Todos</a></li>
+</ul>
+</li>
+<li><a href="#license">License</a></li>
+</ul>
+</li>
+</ul></nav>
+		</div>
+		<main id="main">{"data":{},"messages":[],"history":[],"cwd":"/Users/lbvo/Documents/Coding/docthor","contents":"<zap-chart-flow from="\&quot;top\&quot;" to="\&quot;bottom\&quot;">\nTDC \nTDC-->A[forbidden]\nTDC-->B[public]\nA-->C[Jonathan]\nB-->D[Lasse]\nA-->D\n</zap-chart-flow>\n<zap-chart-sequence>\nAlice->>John: Hello John, how are you?\nJohn-->>Alice: Great!\n</zap-chart-sequence>\n<zap-chart-gantt title="\&quot;A" Gantt="" Diagram\"="" date-format="\&quot;YYYY-MM-DD\&quot;">\n  section Section\n  A task           :a1, 2014-01-01, 30d\n  Another task     :after a1  , 20d\n  section Another\n  Task in sec      :2014-01-12  , 12d\n  another task      : 24d\n</zap-chart-gantt>\n<p>🔗 :)</p>\n<div id="\&quot;walla\&quot;">WALLA</div>\n:)\n<p><a href="\&quot;https://nodesource.com/products/nsolid\&quot;"><img src="\&quot;https://cldup.com/dTxpPi9lDf.thumb.png\&quot;" alt="\&quot;N|Solid\&quot;"></a></p>\n<p>Dillinger is a cloud-enabled, mobile-ready, offline-storage, AngularJS powered HTML5 Markdown editor.</p>\n<ul>\n<li>Type some Markdown on the left</li>\n<li>See HTML in the right</li>\n<li>Magic</li>\n</ul>\n<h1 id="\&quot;new-features\&quot;">New Features!<a aria-hidden="\&quot;true\&quot;" href="\&quot;#new-features\&quot;"><span class="\&quot;icon" icon-link\"=""></span></a></h1>\n<ul>\n<li>Import a HTML file and watch it magically convert to Markdown</li>\n<li>Drag and drop images (requires your Dropbox account be linked)</li>\n</ul>\n<p>You can also:</p>\n<ul>\n<li>Import and save files from GitHub, Dropbox, Google Drive and One Drive</li>\n<li>Drag and drop markdown and HTML files into Dillinger</li>\n<li>Export documents as Markdown, HTML and PDF</li>\n</ul>\n<p>Markdown is a lightweight markup language based on the formatting conventions that people naturally use in email.  As <a href="\&quot;http:%20daringfireball.net=%22%22\&quot;">John Gruber</a> writes on the <a href="\&quot;http:%20daringfireball.net=%22%22%20projects=%22%22%20markdown=%22%22\&quot;">Markdown site</a></p>\n<blockquote>\n<p>The overriding design goal for Markdown's\nformatting syntax is to make it as readable\nas possible. The idea is that a\nMarkdown-formatted document should be\npublishable as-is, as plain text, without\nlooking like it's been marked up with tags\nor formatting instructions.</p>\n</blockquote>\n<p>This text you see here is <em>actually</em> written in Markdown! To get a feel for Markdown's syntax, type some text into the left window and watch the results in the right.</p>\n<h3 id="\&quot;tech\&quot;">Tech<a aria-hidden="\&quot;true\&quot;" href="\&quot;#tech\&quot;"><span class="\&quot;icon" icon-link\"=""></span></a></h3>\n<p>Dillinger uses a number of open source projects to work properly:</p>\n<ul>\n<li><a href="\&quot;http:%20angularjs.org=%22%22\&quot;">AngularJS</a> - HTML enhanced for web apps!</li>\n<li><a href="\&quot;http:%20ace.ajax.org=%22%22\&quot;">Ace Editor</a> - awesome web-based text editor</li>\n<li><a href="\&quot;https:%20github.com=%22%22%20markdown-it=%22%22\&quot;">markdown-it</a> - Markdown parser done right. Fast and easy to extend.</li>\n<li><a href="\&quot;http:%20twitter.github.com=%22%22%20bootstrap=%22%22\&quot;">Twitter Bootstrap</a> - great UI boilerplate for modern web apps</li>\n<li><a href="\&quot;http:%20nodejs.org=%22%22\&quot;">node.js</a> - evented I/O for the backend</li>\n<li><a href="\&quot;http:%20expressjs.com=%22%22\&quot;">Express</a> - fast node.js network app framework <a href="\&quot;http:%20twitter.com=%22%22%20tjholowaychuk=%22%22\&quot;">@tjholowaychuk</a></li>\n<li><a href="\&quot;http:%20gulpjs.com=%22%22\&quot;">Gulp</a> - the streaming build system</li>\n<li><a href="\&quot;http://breakdance.io\&quot;">Breakdance</a> - HTML to Markdown converter</li>\n<li><a href="\&quot;http:%20jquery.com=%22%22\&quot;">jQuery</a> - duh</li>\n</ul>\n<p>And of course Dillinger itself is open source with a <a href="\&quot;https:%20github.com=%22%22%20joemccann=%22%22%20dillinger=%22%22\&quot;">public repository</a>\non GitHub.</p>\n<h3 id="\&quot;installation\&quot;">Installation<a aria-hidden="\&quot;true\&quot;" href="\&quot;#installation\&quot;"><span class="\&quot;icon" icon-link\"=""></span></a></h3>\n<p>Dillinger requires <a href="\&quot;https://nodejs.org/\&quot;">Node.js</a> v4+ to run.</p>\n<p>Install the dependencies and devDependencies and start the server.</p>\n<pre><code class="\&quot;hljs" language-sh\"="">$ <span class="\&quot;hljs-built_in\&quot;">cd</span> dillinger\n$ npm install -d\n$ node app\n</code></pre>\n<p>For production environments...</p>\n<pre><code class="\&quot;hljs" language-sh\"="">$ npm install --production\n$ NODE_ENV=production node app\n</code></pre>\n<h3 id="\&quot;plugins\&quot;">Plugins<a aria-hidden="\&quot;true\&quot;" href="\&quot;#plugins\&quot;"><span class="\&quot;icon" icon-link\"=""></span></a></h3>\n<p>Dillinger is currently extended with the following plugins. Instructions on how to use them in your own application are linked below.</p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Plugin</th><th>README</th></tr></thead><tbody><tr><td>Dropbox</td><td><a href="\&quot;https:%20github.com=%22%22%20joemccann=%22%22%20dillinger=%22%22%20tree=%22%22%20master=%22%22%20plugins=%22%22%20dropbox=%22%22%20README.md=%22%22\&quot;">plugins/dropbox/README.md</a></td></tr><tr><td>Github</td><td><a href="\&quot;https:%20github.com=%22%22%20joemccann=%22%22%20dillinger=%22%22%20tree=%22%22%20master=%22%22%20plugins=%22%22%20github=%22%22%20README.md=%22%22\&quot;">plugins/github/README.md</a></td></tr><tr><td>Google Drive</td><td><a href="\&quot;https:%20github.com=%22%22%20joemccann=%22%22%20dillinger=%22%22%20tree=%22%22%20master=%22%22%20plugins=%22%22%20googledrive=%22%22%20README.md=%22%22\&quot;">plugins/googledrive/README.md</a></td></tr><tr><td>OneDrive</td><td><a href="\&quot;https:%20github.com=%22%22%20joemccann=%22%22%20dillinger=%22%22%20tree=%22%22%20master=%22%22%20plugins=%22%22%20onedrive=%22%22%20README.md=%22%22\&quot;">plugins/onedrive/README.md</a></td></tr><tr><td>Medium</td><td><a href="\&quot;https:%20github.com=%22%22%20joemccann=%22%22%20dillinger=%22%22%20tree=%22%22%20master=%22%22%20plugins=%22%22%20medium=%22%22%20README.md=%22%22\&quot;">plugins/medium/README.md</a></td></tr><tr><td>Google Analytics</td><td><a href="\&quot;https:%20github.com=%22%22%20RahulHP=%22%22%20dillinger=%22%22%20blob=%22%22%20master=%22%22%20plugins=%22%22%20googleanalytics=%22%22%20README.md=%22%22\&quot;">plugins/googleanalytics/README.md</a></td></tr></tbody></table>\n<h3 id="\&quot;development\&quot;">Development<a aria-hidden="\&quot;true\&quot;" href="\&quot;#development\&quot;"><span class="\&quot;icon" icon-link\"=""></span></a></h3>\n<p>Want to contribute? Great!</p>\n<p>Dillinger uses Gulp + Webpack for fast developing.\nMake a change in your file and instantanously see your updates!</p>\n<p>Open your favorite Terminal and run these commands.</p>\n<p>First Tab:</p>\n<pre><code class="\&quot;hljs" language-sh\"="">$ node app\n</code></pre>\n<p>Second Tab:</p>\n<pre><code class="\&quot;hljs" language-sh\"="">$ gulp watch\n</code></pre>\n<p>(optional) Third:</p>\n<pre><code class="\&quot;hljs" language-sh\"="">$ karma <span class="\&quot;hljs-built_in\&quot;">test</span>\n</code></pre>\n<h4 id="\&quot;building-for-source\&quot;">Building for source<a aria-hidden="\&quot;true\&quot;" href="\&quot;#building-for-source\&quot;"><span class="\&quot;icon" icon-link\"=""></span></a></h4>\n<p>For production release:</p>\n<pre><code class="\&quot;hljs" language-sh\"="">$ gulp build --prod\n</code></pre>\n<p>Generating pre-built zip archives for distribution:</p>\n<pre><code class="\&quot;hljs" language-sh\"="">$ gulp build dist --prod\n</code></pre>\n<h3 id="\&quot;docker\&quot;">Docker<a aria-hidden="\&quot;true\&quot;" href="\&quot;#docker\&quot;"><span class="\&quot;icon" icon-link\"=""></span></a></h3>\n<p>Dillinger is very easy to install and deploy in a Docker container.</p>\n<p>By default, the Docker will expose port 8080, so change this within the Dockerfile if necessary. When ready, simply use the Dockerfile to build the image.</p>\n<pre><code class="\&quot;hljs" language-sh\"=""><span class="\&quot;hljs-built_in\&quot;">cd</span> dillinger\ndocker build -t joemccann/dillinger:<span class="\&quot;hljs-variable\&quot;">${package.json.version}</span>\n</code></pre>\n<p>This will create the dillinger image and pull in the necessary dependencies. Be sure to swap out <code>${package.json.version}</code> with the actual version of Dillinger.</p>\n<p>Once done, run the Docker image and map the port to whatever you wish on your host. In this example, we simply map port 8000 of the host to port 8080 of the Docker (or whatever port was exposed in the Dockerfile):</p>\n<pre><code class="\&quot;hljs" language-sh\"="">docker run -d -p 8000:8080 --restart=<span class="\&quot;hljs-string\&quot;">\"always\"</span> &#x3C;youruser>/dillinger:<span class="\&quot;hljs-variable\&quot;">${package.json.version}</span>\n</code></pre>\n<p>Verify the deployment by navigating to your server address in your preferred browser.</p>\n<pre><code class="\&quot;hljs" language-sh\"="">127.0.0.1:8000\n</code></pre>\n<h4 id="\&quot;kubernetes--google-cloud\&quot;">Kubernetes + Google Cloud<a aria-hidden="\&quot;true\&quot;" href="\&quot;#kubernetes--google-cloud\&quot;"><span class="\&quot;icon" icon-link\"=""></span></a></h4>\n<p>See <a href="\&quot;https://github.com/joemccann/dillinger/blob/master/KUBERNETES.md\&quot;">KUBERNETES.md</a></p>\n<h3 id="\&quot;todos\&quot;">Todos<a aria-hidden="\&quot;true\&quot;" href="\&quot;#todos\&quot;"><span class="\&quot;icon" icon-link\"=""></span></a></h3>\n<ul>\n<li>Write MORE Tests</li>\n<li>Add Night Mode</li>\n</ul>\n<h2 id="\&quot;license\&quot;">License<a aria-hidden="\&quot;true\&quot;" href="\&quot;#license\&quot;"><span class="\&quot;icon" icon-link\"=""></span></a></h2>\n<p>MIT</p>\n<p><strong>Free Software, Hell Yeah!</strong></p>\n<p>&#x3C;/https:>&#x3C;/https:>&#x3C;/https:>&#x3C;/https:>&#x3C;/https:>&#x3C;/https:>&#x3C;/http:>&#x3C;/http:>&#x3C;/http:>&#x3C;/http:>&#x3C;/http:>&#x3C;/http:>&#x3C;/http:>&#x3C;/http:>&#x3C;/https:>&#x3C;/http:>&#x3C;/http:>&#x3C;/https:>&#x3C;/https:></p>"}</main>
+	</div>
+</body>
+</html>
