@@ -1,5 +1,5 @@
 const beautify = require('json-beautify')
-const Page = require('./Page')
+
 const {
   RC_FILENAME,
   PACKAGE_NAME,
@@ -7,6 +7,7 @@ const {
   APP_DIR,
 } 
 = require('./constants')
+
 const proccessCss = require('./process-postcss')
 const initialRc = require('./read-rc')(APP_DIR)
 const {emptyDir, pathExists, copy, writeFileSync} = require('./filesys')
@@ -29,7 +30,8 @@ class Processor {
       'docthor.run()',
     ].join('\n')
 
-    await writeFileSync(`${HOME_DIR}/${RC_FILENAME}`, moduleWrapper)
+    writeFileSync(`${HOME_DIR}/${RC_FILENAME}`, moduleWrapper)
+  
     return {}
   }
   async createDist (options) {

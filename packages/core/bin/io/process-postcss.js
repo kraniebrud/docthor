@@ -13,7 +13,7 @@ module.exports = (from, to) => {
     })
   ]
   try {
-    readFile(from, (err, css) => 
+    readFile(from, (_err, css) => 
       postcss(plugins).process(css, {from, to})
       .then(result => {
         if(result.map) writeFile(`${to}.map`, result.map)

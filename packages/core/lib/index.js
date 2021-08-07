@@ -10,7 +10,8 @@ module.exports = (conf) => {
       return callables
     },
     run: () => {
-      page.create(pluginsArr)
+      const files = page.createPages(pluginsArr)
+      console.log('succesfully created', files)
       return callables
     }
   }

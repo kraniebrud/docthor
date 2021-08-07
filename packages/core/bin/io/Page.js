@@ -20,7 +20,7 @@ class Page {
     const content = readFileSync(`${fromPath}/${filename}`)
     return {title, ...render(cfg, options, plugins).page(fname, content)}
   }
-  create (plugins) {
+  createPages (plugins) {
     const {cfg, options} = this
     const [templateDir, wikiDir] = [
       `${HOME_DIR}/${PACKAGE_NAME}/template/${cfg.template || 'default' /* figure how template should be work */ }/_src/html`,

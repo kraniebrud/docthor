@@ -59,18 +59,17 @@
 </li>
 </ul></nav>
 		</div>
-		<main id="main"><p>#Hi there bimabam</p>
-<div class="mermaid">graph TB 
-  TDC 
-  TDC-->A[forbidden]
-  TDC-->B[public]
-  A-->C[Jonathan]
-  B-->D[Lasse]
-  A-->D
-</div>
+		<main id="main"><zap-chart-flow from="top" to="bottom">
+TDC 
+TDC-->A[forbidden]
+TDC-->B[public]
+A-->C[Jonathan]
+B-->D[Lasse]
+A-->D
+</zap-chart-flow>
 <zap-chart-sequence>
-  Alice->>John: Hello John, how are you?
-  John-->>Alice: Great!
+Alice->>John: Hello John, how are you?
+John-->>Alice: Great!
 </zap-chart-sequence>
 <zap-chart-gantt title="A Gantt Diagram" date-format="YYYY-MM-DD">
   section Section

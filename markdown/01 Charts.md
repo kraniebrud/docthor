@@ -1,17 +1,15 @@
-#Hi there bimabam
-
 <zap-chart-flow from="top" to="bottom">
-  TDC 
-  TDC-->A[forbidden]
-  TDC-->B[public]
-  A-->C[Jonathan]
-  B-->D[Lasse]
-  A-->D
+TDC 
+TDC-->A[forbidden]
+TDC-->B[public]
+A-->C[Jonathan]
+B-->D[Lasse]
+A-->D
 </zap-chart-flow>
 
 <zap-chart-sequence>
-  Alice->>John: Hello John, how are you?
-  John-->>Alice: Great!
+Alice->>John: Hello John, how are you?
+John-->>Alice: Great!
 </zap-chart-sequence>
 
 <zap-chart-gantt

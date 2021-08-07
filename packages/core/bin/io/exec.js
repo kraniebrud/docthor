@@ -25,7 +25,7 @@ const page = async (cfg, options) => {
 	const processor = new Processor(cfg)
 	const goal = new Page(cfg, options)
 	await processor.createDist(options)
-	const createdFiles = goal.create()
+	const createdFiles = goal.createPages()
 	info(`Documentation was succesfully build!\nFiles can now be served from ${HOME_DIR}/${cfg.publish_folder}`)
 	return dir(createdFiles)
 }

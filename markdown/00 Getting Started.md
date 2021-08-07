@@ -1,3 +1,33 @@
+<zap-chart-flow from="top" to="bottom">
+TDC 
+TDC-->A[forbidden]
+TDC-->B[public]
+A-->C[Jonathan]
+B-->D[Lasse]
+A-->D
+</zap-chart-flow>
+
+<zap-chart-sequence>
+Alice->>John: Hello John, how are you?
+John-->>Alice: Great!
+</zap-chart-sequence>
+
+<zap-chart-gantt
+  title="A Gantt Diagram"
+  date-format="YYYY-MM-DD"
+>
+  section Section
+  A task           :a1, 2014-01-01, 30d
+  Another task     :after a1  , 20d
+  section Another
+  Task in sec      :2014-01-12  , 12d
+  another task      : 24d
+</zap-chart-gantt>
+
+<zap-draft>
+# this is draft content
+</zap-draft>
+
 &#128279; :)
 
 <div id="walla">WALLA</div>
