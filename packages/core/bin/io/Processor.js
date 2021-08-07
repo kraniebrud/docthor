@@ -1,5 +1,5 @@
 const beautify = require('json-beautify')
-const Wiki = require('./Wiki')
+const Page = require('./Page')
 const {
   RC_FILENAME,
   PACKAGE_NAME,
@@ -22,13 +22,20 @@ class Processor {
     const srcFolderPath = `${HOME_DIR}/${src_folder}`
     const srcFolderExists = await pathExists(srcFolderPath)
     if(!srcFolderExists) await copy(`${APP_DIR}/../_boiler/markdown`, srcFolderPath)
-    await writeFileSync(`${HOME_DIR}/${RC_FILENAME}`, rcJsonString)
+
+    const moduleWrapper = [
+      'const Docthor = require("@docthor/core") \n',
+      `const docthor = Docthor(${rcJsonString}) \n`,
+      'docthor.run()',
+    ].join('\n')
+
+    await writeFileSync(`${HOME_DIR}/${RC_FILENAME}`, moduleWrapper)
     return {}
   }
   async createDist (options) {
     const outFolder = options.isDraft ? this.rc.draft_folder : this.rc.publish_folder
     await emptyDir(`${HOME_DIR}/${outFolder}`) // also creates the out foulder
-    const [distDir, wikiDir, templateDir, templateDefaultDir, draftDir] = await Promise.all(
+    const [distDir, pageDir, templateDir, templateDefaultDir, draftDir] = await Promise.all(
       [
         pathExists(`${HOME_DIR}/${PACKAGE_NAME}`), 
         pathExists(`${HOME_DIR}/${this.rc.src_folder}`),
@@ -37,7 +44,7 @@ class Processor {
       ]
     )
     if(!distDir) await copy(`${APP_DIR}/../_boiler/${PACKAGE_NAME}`, `${HOME_DIR}/${PACKAGE_NAME}`)
-    if(!wikiDir) await copy(`${APP_DIR}/../_boiler/markdown`, `${HOME_DIR}/${this.rc.src_folder}`)
+    if(!pageDir) await copy(`${APP_DIR}/../_boiler/markdown`, `${HOME_DIR}/${this.rc.src_folder}`)
     if(!templateDir) await copy(`${APP_DIR}/../_boiler/${PACKAGE_NAME}/template`, `${HOME_DIR}/${PACKAGE_NAME}/template`)
     if(!templateDefaultDir) await copy(`${APP_DIR}/../_boiler/${PACKAGE_NAME}/template/default`, `${HOME_DIR}/${PACKAGE_NAME}/template/default`)
     await copy(`${HOME_DIR}/${PACKAGE_NAME}/template/default/assets`, `${HOME_DIR}/${outFolder}/assets`)

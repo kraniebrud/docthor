@@ -13,38 +13,40 @@ const tagDraft = require('./helper/tag-draft')
 
 const expressions = require('./helper/expressions')
 
-const page = (rc, options) => (title, src) => {
+const page = (rc, _options, plugins = []) => (title, src) => {
   const slug = slugger.slug(title)
   const toc = markdown(src).toc()
-
   /*
     Maybe make it possible to set if specific plugin/helper should be part of the markdown
     so some could be traded with markdown on some skipped
   */
-  const process = posthtml()
-    .use(tagInclude({srcFolder: rc.src_folder}))
-    .use(tagDraft({isDraft: options.isDraft}))
-    // .use(tagChartFlow())
-    // .use(tagChartSequence())
-    // .use(tagChartGantt())
-    // .use(tagSwaggerSpec())
-    .process(src, {sync: true})
 
-  const html = markdown(process.html).content()
+  const process = posthtml(
+    [
+      tagInclude({srcFolder: rc.src_folder}),
+      ...plugins,
+    ]
+  )
+  .process(src, {sync: true})
+
+  const html = markdown(process.html).html().contents
   
   return {slug, toc, html}
 }
 
 const layout = () => (layoutfile) => (locals) => {
-  const {html} = posthtml()
+  const p = posthtml()
     .use(expressions(locals))
     .process(layoutfile, {sync: true})
-  return html
+
+  return p.html
 }
 
-module.exports = (rc, options) => Object.freeze(
-  {
-    page: page(rc, options),
-    layout: layout()
-  }
-)
+module.exports = (rc, options, plugins = []) => {
+  return Object.freeze(
+    {
+      page: page(rc, options, plugins ? plugins : []),
+      layout: layout(),
+    }
+  )
+}

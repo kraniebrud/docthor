@@ -1,5 +1,5 @@
 {
-  "name": "@docthor/plug-swagger",
+  "name": "docthor",
   "version": "0.0.1",
   "private": true,
   "description": "",
@@ -10,7 +10,7 @@
     "./packages/*"
   ],
   "scripts": {
-    "clean": "rm .docthorrc.json"
+    "clean": "rm .docthorrc.js && rm -rf template && rm -rf markdown"
   },
   "author": "LBVO <lbvo@tdc.dk>",
   "license": "ISC",

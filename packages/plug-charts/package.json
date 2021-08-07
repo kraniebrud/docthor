@@ -1,0 +1,13 @@
+{
+  "name": "@docthor/plug-charts",
+  "version": "0.0.1",
+  "private": true,
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "LBVO <lbvo@tdc.dk>",
+  "license": "ISC",
+  "dependencies": {}
+}

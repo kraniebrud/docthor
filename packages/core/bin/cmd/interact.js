@@ -4,7 +4,6 @@ const availableColors = require('./colors')
 
 
 const paint = (...colors) => (content) => {
-  // console.log('colors', colors)
   const pick = (pColor) => availableColors[pColor] || ''
   const useColors = colors.reduce((acc, curr) => acc + pick(curr), '')
   return `${useColors}${content}${pick('reset')}`

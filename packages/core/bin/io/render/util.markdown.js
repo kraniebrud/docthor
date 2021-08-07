@@ -18,7 +18,7 @@ module.exports = (markdown) => Object.freeze(
         .use(remark2html)
         .stringify(tocNode.map)
     },
-    content: (src = markdown) => {
+    html: (src = markdown) => {
       return remark()
         .use(remark2rehype, {allowDangerousHTML: true}) // allowDangerousHTML let's make use of html
         .use(raw)

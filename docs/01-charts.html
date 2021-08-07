@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Untitled &mdash; Getting Started | 1.0.0 </title>
+	<title>Untitled &mdash; Charts | 1.0.0 </title>
 	<script src="https://unpkg.com/mermaid@8.0.0-rc.8/dist/mermaid.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="assets/lib/skeleton.css">
 	<link rel="stylesheet" type="text/css" href="assets/lib/highlightjs/tomorrow-night.css">
@@ -18,11 +18,11 @@
 			<nav id="menu">
 				<ul>
 					
-						<li class="active">
+						<li class="">
 							<a title="Getting Started" href="index.html">Getting Started</a>
 						</li>
 					
-						<li class="">
+						<li class="active">
 							<a title="Charts" href="01-charts.html">Charts</a>
 						</li>
 					
@@ -59,7 +59,31 @@
 </li>
 </ul></nav>
 		</div>
-		<main id="main"><p>🔗 :)</p>
+		<main id="main"><p>#Hi there bimabam</p>
+<div class="mermaid">graph TB 
+  TDC 
+  TDC-->A[forbidden]
+  TDC-->B[public]
+  A-->C[Jonathan]
+  B-->D[Lasse]
+  A-->D
+</div>
+<zap-chart-sequence>
+  Alice->>John: Hello John, how are you?
+  John-->>Alice: Great!
+</zap-chart-sequence>
+<zap-chart-gantt title="A Gantt Diagram" date-format="YYYY-MM-DD">
+  section Section
+  A task           :a1, 2014-01-01, 30d
+  Another task     :after a1  , 20d
+  section Another
+  Task in sec      :2014-01-12  , 12d
+  another task      : 24d
+</zap-chart-gantt>
+<zap-draft>
+# this is draft content
+</zap-draft>
+<p>🔗 :)</p>
 <div id="walla">WALLA</div>
 :)
 <p><a href="https://nodesource.com/products/nsolid"><img src="https://cldup.com/dTxpPi9lDf.thumb.png" alt="N|Solid"></a></p>

@@ -2,11 +2,11 @@ const {readFileSync, readdirSync, writeFileSync} = require('./filesys')
 const {HOME_DIR, PACKAGE_NAME} = require('./constants')
 const render = require('./render/functions')
 
-class Wiki {
-  constructor (rc, options) {
-    Object.assign(this, {rc, options})
+class Page {
+  constructor (cfg, options = {}) {
+    Object.assign(this, {cfg, options})
   }
-  static createPage (rc, options, pageIdx, fromPath, filename) {
+  static createPage (cfg, options, pageIdx, fromPath, filename, plugins) {
     let fname = filename.substr(0, filename.length - 3).trim() // Minus `.md`-extension
     let orderNoPrefix = parseInt(fname.substr(0, 2)) // ie. `01 About.md`, where 01 is order no, must match this pattern when using page orders (page index)
     let title = fname.replace('.draft', '')
@@ -18,15 +18,15 @@ class Wiki {
     }
     fname = fname.toLowerCase().replace('.draft', '-draft')
     const content = readFileSync(`${fromPath}/${filename}`)
-    return {title, ...render(rc, options).page(fname, content)}
+    return {title, ...render(cfg, options, plugins).page(fname, content)}
   }
-  create () {
-    const {rc, options} = this
+  create (plugins) {
+    const {cfg, options} = this
     const [templateDir, wikiDir] = [
-      `${HOME_DIR}/${PACKAGE_NAME}/template/${rc.template}/_src/html`,
-      `${HOME_DIR}/${rc.src_folder}`
+      `${HOME_DIR}/${PACKAGE_NAME}/template/${cfg.template || 'default' /* figure how template should be work */ }/_src/html`,
+      `${HOME_DIR}/${cfg.src_folder}`
     ]
-    const outFolder = options.isDraft ? rc.draft_folder : rc.publish_folder
+    const outFolder = options.isDraft ? cfg.draft_folder : cfg.publish_folder
     const layoutfile = readFileSync(`${templateDir}/layout.html`)
     const filesInDir = readdirSync(wikiDir)
     const pages = filesInDir.map((f, idx) => {
@@ -35,11 +35,10 @@ class Wiki {
         f.substr(f.length - '.draft.md'.length) === '.draft.md'
       ]
       return notMd || (options.isDraft === false && isDraftMd) ? false : { // < must be md-file, when NOT draft must NOT be draft md
-        ...Wiki.createPage(rc, options, idx, wikiDir, f)
+        ...Page.createPage(cfg, options, idx, wikiDir, f, plugins)
       }
     })
     .filter(pfilter => pfilter) // filter for removing false entries
-
     const pageLinks = pages.map(
       item => ({
         title: item.title,
@@ -50,7 +49,7 @@ class Wiki {
     for(let p of pages.filter(pfilter => pfilter)) {
       let html = render().layout(layoutfile)(
         {
-          project: {title: rc.title, version: this.rc.version},
+          project: {title: cfg.title, version: this.cfg.version},
           pages: pageLinks,
           page: p,
         }
@@ -63,4 +62,4 @@ class Wiki {
   }
 }
 
-module.exports = Wiki
+module.exports = Page

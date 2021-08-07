@@ -1,7 +1,7 @@
 const {log, info, warn, dir} = require('better-console')
 const {HOME_DIR, RC_FILENAME} = require('./constants')
 const Processor = require('./Processor')
-const Wiki = require('./Wiki')
+const Page = require('./Page')
 const readRc = require('./read-rc')
 
 const rcInfo = `
@@ -21,20 +21,18 @@ const init = async () => {
 	}
 }
 
-const wiki = async (options) => {
-	const rc = readRc()
-	if(!rc) throw `No "${RC_FILENAME}" has been created, please use "init" first to create this file.`
-	const processor = new Processor(rc)
-	const goal = new Wiki(rc, options)
+const page = async (cfg, options) => {
+	const processor = new Processor(cfg)
+	const goal = new Page(cfg, options)
 	await processor.createDist(options)
 	const createdFiles = goal.create()
-	info(`Documentation was succesfully build!\nFiles can now be served from ${HOME_DIR}/${rc.publish_folder}`)
+	info(`Documentation was succesfully build!\nFiles can now be served from ${HOME_DIR}/${cfg.publish_folder}`)
 	return dir(createdFiles)
 }
 
 module.exports = () => {
 	try {
-		return Object.freeze({init, wiki})
+		return Object.freeze({init, page})
 	}
 	catch(err){
 		warn(err)
