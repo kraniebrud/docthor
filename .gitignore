@@ -1,7 +1,14 @@
 node_modules/
 .DS_Store
-^.docthorrc.json
+^.docthorrc.js
 ^docs/
 ^docthor/
 ^markdown/
 ^_draft
+
+packages/core/.docthorrc.js
+packages/core/docs/
+packages/core/docthor/
+packages/core/markdown/
+packages/core/template/
+packages/core/_draft
