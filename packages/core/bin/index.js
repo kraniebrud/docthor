@@ -6,7 +6,7 @@ const args = argv.splice(2) // leave out 1st and 2nd arg, is always refered to w
 const command = args[0]
 
 ;(async () => {
-  switch(command || '') {
+  switch(command || 'init') {
     case 'init': {
       try {
         const init = await exec().init()
@@ -71,5 +71,4 @@ const command = args[0]
       process.exit(1)
     }
   }
-  process.exit(1)
 })()
