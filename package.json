@@ -9,9 +9,7 @@
   "workspaces": [
     "./packages/*"
   ],
-  "scripts": {
-    "clean": "rm .docthorrc.js && rm -rf template && rm -rf markdown"
-  },
+  "scripts": {},
   "author": "LBVO <lbvo@tdc.dk>",
   "license": "ISC",
   "devDependencies": {}

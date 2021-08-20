@@ -2,8 +2,4 @@ node_modules/
 .DS_Store
 
 packages/core/.docthorrc.js
-packages/core/docs/
-packages/core/docthor/
-packages/core/markdown/
-packages/core/template/
-packages/core/_draft
+packages/core/test/**/*.temp
