@@ -1,3 +1,4 @@
+const {info} = require('better-console')
 const Page = require('../bin/io/Page')
 
 module.exports = (conf) => {
@@ -11,7 +12,7 @@ module.exports = (conf) => {
     },
     run: () => {
       const files = page.createPages(pluginsArr)
-      console.log('succesfully created', files)
+      info('succesfully created files: ', files)
       return callables
     }
   }

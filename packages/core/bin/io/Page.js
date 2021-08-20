@@ -1,4 +1,5 @@
-const {readFileSync, readdirSync, writeFileSync} = require('./filesys')
+const path = require('path')
+const {readFileSync, readdirSync, writeFileSync, pathExists} = require('./filesys')
 const {HOME_DIR, PACKAGE_NAME} = require('./constants')
 const render = require('./render/functions')
 
@@ -22,11 +23,22 @@ class Page {
   }
   createPages (plugins) {
     const {cfg, options} = this
+    
+
+    /**
+     * SUPER BAD TEMPLATE FIX !!
+     */
+
+    // const [templateDir, wikiDir] = [
+    //   `${HOME_DIR}/${PACKAGE_NAME}/template/${cfg.template || 'default' /* figure how template should be work */ }/_src/html`,
+    //   `${HOME_DIR}/${cfg.src_folder}`
+    // ]
     const [templateDir, wikiDir] = [
-      `${HOME_DIR}/${PACKAGE_NAME}/template/${cfg.template || 'default' /* figure how template should be work */ }/_src/html`,
-      `${HOME_DIR}/${cfg.src_folder}`
+      path.resolve(__dirname, '..', '_boiler/template/default/_src/html'), // should be exposed and configuralbe
+      cfg.src_folder,
     ]
-    const outFolder = options.isDraft ? cfg.draft_folder : cfg.publish_folder
+
+    const outFolder = options?.isDraft ? cfg.draft_folder : cfg.publish_folder
     const layoutfile = readFileSync(`${templateDir}/layout.html`)
     const filesInDir = readdirSync(wikiDir)
     const pages = filesInDir.map((f, idx) => {
@@ -34,9 +46,11 @@ class Page {
         f.substr(f.length - '.md'.length) !== '.md',
         f.substr(f.length - '.draft.md'.length) === '.draft.md'
       ]
-      return notMd || (options.isDraft === false && isDraftMd) ? false : { // < must be md-file, when NOT draft must NOT be draft md
-        ...Page.createPage(cfg, options, idx, wikiDir, f, plugins)
+      if (notMd || (options.isDraft === false && isDraftMd)){  // < must be md-file, when NOT draft must NOT be draft md
+        return false
       }
+
+      return Page.createPage(cfg, options, idx, wikiDir, f, plugins)
     })
     .filter(pfilter => pfilter) // filter for removing false entries
     const pageLinks = pages.map(
@@ -54,7 +68,8 @@ class Page {
           page: p,
         }
       )
-      let createFile = `${HOME_DIR}/${outFolder}/${p.slug}.html`.replace('//', '/')
+      
+      let createFile = `${outFolder}/${p.slug}.html`.replace('//', '/')
       writeFileSync(createFile, html)
       createdFiles.push(createFile)
     }

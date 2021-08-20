@@ -1,0 +1,111 @@
+:root {
+  --app-background: #FFF;
+  --app-color: #545d62;
+  --main-blue: #266baf;
+  --light-blue: #66add3;
+  --dark-grey: #192228;
+  --mid-grey: #ececed;
+  --code-background: #1d1f21;
+  --code-color: #c5c8c6;
+  --header-height: 75px;
+  --sidebar-width: 290px;
+}
+
+::selection {
+ background: var(--light-blue);
+}
+
+html, body 	{
+  font-family: sans-serif;
+  font-size: 14.5px;
+  background: var(--app-background);
+  color: var(--app-color);
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+{
+  color: var(--main-blue);
+}
+#wrapper {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: var(--sidebar-width) 1fr;
+  grid-template-rows: var(--header-height) auto;
+  grid-gap: 0;
+}
+#header {
+  display: grid;
+  grid-template-columns: 265px 1fr;
+  grid-row: 1;
+  grid-column: 1 / -1;
+  background: var(--mid-grey)
+}
+#header h1 {
+  grid-column: 1 / 2;
+}
+#header #menu {
+  grid-column: 2 / 2;
+}
+#header #menu ul { 
+  float: right;
+  padding: 0;
+}
+#header #menu ul li { 
+  display: inline-block;
+  line-height: 1.67;
+  font-size: 1.15rem;
+  padding: 0 .5rem;
+  margin: 0 .5rem;
+}
+#header #menu ul li.active {
+  border-bottom: .22rem var(--light-blue) solid;
+}
+#header #menu ul li a {
+  display: block;
+  text-decoration: none;
+  color: var(--app-color);
+}
+#sidebar {
+  grid-row: 2 / 2;
+  grid-column: 1 / 2;
+}
+#main {
+  grid-row: 2 / 2;
+  grid-column: 2 / 2;
+  padding-right: 2rem;
+}
+#sidebar, #main {
+  padding: 2rem 1.5rem;
+  overflow: auto;
+}
+#header {
+  padding: .5rem 3.5rem;
+}
+#main > .content, #header > #menu { 
+  max-width: 1100px;
+} 
+#header > h1, #header > h1 > img {
+  height: 3.22rem;
+  line-height: 2.22;
+}
+#sidebar ul {
+  padding: 0 1.5rem;
+  margin: 0 0 1.5rem 0;
+}
+#sidebar ul li {
+  display: block;
+  line-height: 1.33;
+}
+code {
+  background: var(--code-background);
+  color: var(--code-color);
+  overflow: auto;
+  transition: font-size .2s;
+  border-left: .44rem solid var(--light-blue);
+}
+code:hover {
+  font-size: 100%; /*highlightjs turns size to 90%*/
+}
